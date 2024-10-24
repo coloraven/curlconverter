@@ -1,0 +1,9 @@
+# 第一段：下载并解压文件
+FROM ubuntu:latest as downloader
+RUN apt install wget unzip -y
+WORKDIR /tmp
+RUN wget https://github.com/curlconverter/curlconverter.github.io/archive/refs/heads/gh - pages.zip
+RUN unzip gh - pages.zip
+
+FROM nginx:stable-alpine
+COPY --from=downloader /tmp/curlconverter.github.io-gh-pages /usr/share/nginx/html

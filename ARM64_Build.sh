@@ -1,0 +1,1 @@
+docker build -t curlconverter:latest -f Dockerfile_ARM64
